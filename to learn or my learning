@@ -2,3 +2,8 @@ learn vite and tailwing installation comments
 learn basic or vite and why is it better than normal create react app
 
 tailwind - outline-none to prevent focus on input text (after clicking)
+
+conditional rendering - here classes like rounded-xl is applied and also a condition is used 
+className={`rounded-xl pr-7 pl-3 py-3 border ${investmentType >0 ?"bg-red-400":""}`}
+now this looks complex to avoid these issues can can declare a vaiable and then use it 
+const rating = ra >1 ? "one":"two"

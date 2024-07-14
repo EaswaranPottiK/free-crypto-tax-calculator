@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useReducer, useState } from 'react'
 
 const CryptoPage = () => {
+  // 0 for less than 12 month and 1 for more than 12 month
+  const [investmentType, setInvestmentType] = useState(1)
+  // const tickmark = `?&#10003;`
+  function reducer(state, action){
+    return {purchasePrice:action.value}
+  }
+  const [state,dispatch] = useReducer(reducer, {purchasePrice:0})
+
+
   return (
     <div className='mt-8 '>
       <p className='text-center text-2xl font-black'>Free Crypto Tax Calculator Australia</p>
@@ -32,7 +41,7 @@ const CryptoPage = () => {
             <>Enter purchase price of Crypto</>
             <div className='flex w-52 text-lg'>
               <input type='text' value=' $' className='w-4 min-h-12  bg-[#edeeef] rounded-l-lg' readOnly/>
-              <input type='text' className='w-48 min-h-12 outline-none bg-[#edeeef] rounded-r-lg'/>
+              <input type='number' onChange={(e)=>{dispatch(action:{purchasePrice:e.target.value})} className='w-48 min-h-12 outline-none bg-[#edeeef] rounded-r-lg'/>
             </div>
           </div>
 
@@ -40,7 +49,7 @@ const CryptoPage = () => {
             <>Enter sale price of Crypto</>
             <div className='flex  w-52 text-lg'>
               <input type='text' value=' $' className='w-4 min-h-12  bg-[#edeeef] rounded-l-lg' readOnly/>
-              <input type='text' className='w-48 min-h-12 outline-none bg-[#edeeef] rounded-r-lg'/>
+              <input type='number' className='w-48 min-h-12 outline-none bg-[#edeeef] rounded-r-lg'/>
             </div>
           </div>
 
@@ -52,7 +61,7 @@ const CryptoPage = () => {
             <>Enter your Expenses</>
             <div className='flex  w-52 text-lg'>
               <input type='text' value=' $' className='w-4 min-h-12  bg-[#edeeef] rounded-l-lg' readOnly/>
-              <input type='text' className='w-48 min-h-12 outline-none bg-[#edeeef] rounded-r-lg'/>
+              <input type='number' className='w-48 min-h-12 outline-none bg-[#edeeef] rounded-r-lg'/>
             </div>
           </div>
 
@@ -60,8 +69,8 @@ const CryptoPage = () => {
             <>Investment Type</>
             <div>
               <div className='flex gap-1'>
-                <button className=' rounded-xl pr-7 pl-3 py-3 border'>Short Term</button>
-                <button className=' rounded-xl pr-7 pl-3 py-3 border'>Long Term</button>
+                <button onClick={()=>{setInvestmentType(0)}} className={`rounded-xl pr-7 pl-3 py-3 border ${investmentType ==0 ?"border-blue-600 text-blue-600":""}`}>Short Term</button>
+                <button onClick={()=>{setInvestmentType(1)}} className={`rounded-xl pr-7 pl-3 py-3 border ${investmentType >0 ?"border-blue-600 text-blue-600":""}`}>Long Term</button>
               </div>
               <div className='flex justify-around'>
                 <p>&lt; 12 months</p>
@@ -101,7 +110,7 @@ const CryptoPage = () => {
             <>Capital gain amount</>
             <div className='flex  w-52 text-lg'>
               <input type='text' value=' $' className='w-4 min-h-12  bg-[#edeeef] rounded-l-lg' readOnly/>
-              <input type='text' className='w-48 min-h-12 outline-none bg-[#edeeef] rounded-r-lg'/>
+              <input type='number' className='w-48 min-h-12 outline-none bg-[#edeeef] rounded-r-lg'/>
             </div>
           </div>
 
@@ -109,7 +118,7 @@ const CryptoPage = () => {
             <>Discount for long term gains</>
             <div className='flex  w-52 text-lg'>
               <input type='text' value=' $' className='w-4 min-h-12  bg-[#edeeef] rounded-l-lg' readOnly/>
-              <input type='text' className='w-48 min-h-12 outline-none bg-[#edeeef] rounded-r-lg'/>
+              <input type='number' className='w-48 min-h-12 outline-none bg-[#edeeef] rounded-r-lg'/>
             </div>
           </div>
         </div> 
