@@ -145,21 +145,23 @@ const CryptoPage = () => {
         <br />
 
         {investmentType == 1 && (
-                  <div className='flex justify-around'>
+                  <div className='flex md:flex-row flex-col justify-around'>
 
                   <div className='flex flex-col text-sm'>
                     <>Capital gain amount</>
-                    <div className='flex  w-52 text-lg'>
+                    <div className='flex w-[100%] md:w-52 text-lg'>
                       <input type='text' value=' $' className='w-4 min-h-12  bg-[#edeeef] rounded-l-lg' readOnly/>
-                      <input type='number' value={state.salePrice - state.purchasePrice- state.expenses}  className='w-48 min-h-12 outline-none bg-[#edeeef] rounded-r-lg'/>
+                      <input type='number' value={state.salePrice - state.purchasePrice- state.expenses}  className='w-[100%] md:w-48 min-h-12 outline-none bg-[#edeeef] rounded-r-lg'/>
                     </div>
                   </div>
-        
+
+                  <br className='md:hidden'/>
+
                   <div className='flex flex-col text-sm'>
                     <>Discount for long term gains</>
-                    <div className='flex  w-52 text-lg'>
+                    <div className='flex w-[100%] md:w-52 text-lg'>
                       <input type='text' value=' $' className='w-4 min-h-12  bg-[#edeeef] rounded-l-lg' readOnly/>
-                      <input type='number' value={(state.salePrice - state.purchasePrice- state.expenses)>0 ? (state.salePrice - state.purchasePrice- state.expenses)*0.5 : 0} className='w-48 min-h-12 outline-none bg-[#edeeef] rounded-r-lg'/>
+                      <input type='number' value={(state.salePrice - state.purchasePrice- state.expenses)>0 ? (state.salePrice - state.purchasePrice- state.expenses)*0.5 : 0} className='w-[100%] md:w-48 min-h-12 outline-none bg-[#edeeef] rounded-r-lg'/>
                     </div>
                   </div>
                 </div> 
@@ -167,12 +169,12 @@ const CryptoPage = () => {
 
 
         
-          <div className='flex justify-around'>
-            <div className='mt-10 rounded-md px-8 py-2 bg-[#EBF9F4] w-1/4'>
+          <div className='flex flex-col md:flex-row justify-around'>
+            <div className='mt-10 rounded-md md:px-8 md:py-2 m-auto bg-[#EBF9F4] w-4/5 md:w-1/4'>
               <p className='text-center '>Net capital gains tax amount</p>
               <p className='text-center text-[#1DBE8A] font-extrabold text-2xl '> $ {state.greenbox} </p>
             </div>
-            <div className='mt-10 rounded-md px-8 py-2 bg-[#EBF2FF] w-1/4'>
+            <div className='mt-10 rounded-md md:px-8 md:py-2 m-auto bg-[#EBF2FF] w-4/5 md:w-1/4'>
               <p className='text-center '>Tax you need to pay*</p>
               <p className='text-center text-[#0141CF] font-extrabold text-2xl '> $ {state.bluebox}</p>
             </div>
