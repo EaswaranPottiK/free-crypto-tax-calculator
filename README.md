@@ -31,17 +31,30 @@ Term”, then the section with “Capital Gains Amount” and “Discount for Lo
 
 
 Example
+
 Purchase Price = 50
+
 Sale Price = 100
+
 Expenses = 20
+
 Investment Type = Long Term
+
 Annual Income = ($45001 - $120000).
+
 For the above inputs, calculation would be:
+
 Tax Rate = “$5092 + 32.5% of excess over $45000”
+
 Capital Gains Amount = 30
+
 Long Term Capital Gains Discount = 15
+
 Net Capital Gains Amount = 15
+
 Tax you need to pay = 4.875 (which is 32.5% of 15)
+
+![image](https://github.com/user-attachments/assets/726cbf41-ca8a-4815-8c24-18b42498a61d)
 
 
 Additional feature:
